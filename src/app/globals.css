@@ -1,0 +1,65 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Syne:wght@700;800&display=swap');
+@import url('https://cdn.jsdelivr.net/npm/mana-font@latest/css/mana.css');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root { color-scheme: dark; }
+
+body {
+  background-color: #060810;
+  color: #e8f4ff;
+  font-family: 'Space Grotesk', sans-serif;
+  min-height: 100vh;
+}
+
+/* Holo mesh background */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 80% 60% at 20% 10%, rgba(0,212,255,0.06) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 80% at 80% 90%, rgba(255,0,128,0.05) 0%, transparent 60%),
+    radial-gradient(ellipse 100% 100% at 50% 50%, rgba(124,58,237,0.03) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+@layer utilities {
+  .holo-text {
+    background: linear-gradient(135deg, #00d4ff 0%, #ff0080 50%, #00d4ff 100%);
+    background-size: 200% 200%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: holo-shift 4s ease infinite;
+  }
+
+  .glass {
+    background: rgba(13, 18, 32, 0.7);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(30, 45, 69, 0.8);
+  }
+
+  .neon-border {
+    border: 1px solid rgba(0, 212, 255, 0.4);
+    box-shadow: 0 0 12px rgba(0, 212, 255, 0.15);
+  }
+
+  .card-skeleton {
+    background: linear-gradient(90deg, #0d1220 0%, #141b2d 50%, #0d1220 100%);
+    background-size: 800px 100%;
+    animation: shimmer 1.4s ease infinite;
+  }
+}
+
+/* Mana symbol sizing */
+.ms { font-size: 1.1em; }
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: #0d1220; }
+::-webkit-scrollbar-thumb { background: #1e2d45; border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: #3d5068; }
